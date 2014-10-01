@@ -9,9 +9,9 @@ $(document).ready(function(){
 	}
     
     $(function(){
+        $('#image').hide();
         $('#countScreen').hide();
         $('#logout').hide();
-        $('#image').hide();
     });
     
     $('#logout').click(function(e){

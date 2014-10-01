@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>LoginCounter</title>
+        <link href="stylesheets/style.css" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="wrapper">
+            <form class="form-signin">
+                <div class="form-signin-heading" id="title">Login Counter</div>
+                <input type="text" class="form-control" name="username" placeholder="Username" autofocus="" id="name"/>
+                <input type="password" class="form-control" name="password" placeholder="Password" id="pw"/>      
+                <button class="btn btn-lg btn-primary btn-block" type="submit" id="login">Login</button> 
+                <button class="btn btn-lg btn-primary btn-block" type="submit" id="register">Register</button>
+            </form>
+        </div>
+        
+        <div id="message"></div>
+        
+        <div id="countScreen">
+            Hi <span id="name"></span>! You've logged in <span id="count"></span> times!
+        </div>
+        
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/scripts.js"?></script>
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>

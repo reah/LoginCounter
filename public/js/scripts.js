@@ -13,6 +13,7 @@ $(document).ready(function(){
     
     $('#logout').click(function(e){
 		$('.wrapper').show(); 
+        $('#countScreen').hide();
 		$("#message").hide();
 		$("#login").show();
 		$("#logout").hide();
@@ -37,8 +38,9 @@ $(document).ready(function(){
 				var errCode = (data['errCode']).toString();
 				if(errCode < 0){
 					$("#message").html(messages[errCode]);
+					$("#message").show();
 				}else{
-					$("#message").html(messages[errCode]);
+					$("#countScreen").show();
 					$("#countScreen #name").html(username);
 					$("#countScreen #count").html(data['count']);
 					$(".wrapper").hide();

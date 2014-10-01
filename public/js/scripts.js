@@ -1,4 +1,6 @@
 $(document).ready(function(){
+	var url_local = 'http://localhost:3000';
+	var url_heroku = 'http://reah-webapp.herokuapp.com';
 	var messages = {
 		'-1': 'Bad Login Credentials',
 		'-2': 'User Already Exists',
@@ -9,6 +11,7 @@ $(document).ready(function(){
     $(function(){
         $('#countScreen').hide();
         $('#logout').hide();
+        $('#image').hide();
     });
     
     $('#logout').click(function(e){
@@ -17,8 +20,8 @@ $(document).ready(function(){
 		$("#message").hide();
 		$("#login").show();
 		$("#logout").hide();
+		$("#image").hide();
     });
-
     
 	$('#login').click(function(e){
 		console.log('clicking login button');
@@ -29,7 +32,7 @@ $(document).ready(function(){
 		console.log(password);
 		$.ajax({
 			type: 'POST',
-			url: 'http://reah-webapp.herokuapp.com/users/login',
+			url: url_heroku + '/users/login',
 			data: JSON.stringify({user: username, password: password}),
 			contentType: "application/json",
 			dataType: "json",
@@ -40,6 +43,9 @@ $(document).ready(function(){
 					$("#message").html(messages[errCode]);
 					$("#message").show();
 				}else{
+					if(username == 'Omer' || username == 'omer'){
+						$('#image').show();
+					}
 					$("#countScreen").show();
 					$("#countScreen #name").html(username);
 					$("#countScreen #count").html(data['count']);
@@ -57,7 +63,7 @@ $(document).ready(function(){
 		console.log(password);
 		$.ajax({
 			type: 'POST',
-			url: 'http://reah-webapp.herokuapp.com/users/add',
+			url: url_heroku + '/users/add',
 			data: JSON.stringify({user: username, password: password}),
 			contentType: "application/json",
 			dataType: "json",
@@ -69,6 +75,9 @@ $(document).ready(function(){
 					$('#message').show();
 
 				}else{
+					if(username == 'Omer' || username == 'omer'){
+						$('#image').show();
+					}
 					$('#message').hide();
 					$('#countScreen').show();
 					$("#countScreen #name").html(username);

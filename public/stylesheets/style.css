@@ -1,5 +1,7 @@
 body {
-	background: #eee !important;	
+	background: #eee !important;
+	font-family: Helvetica Neue;
+	
 }
 
 .wrapper {	
@@ -12,6 +14,10 @@ body {
     font-weight: 500;
     font-size: 20pt;
     text-align: center;
+}
+
+#req{
+	display: none;
 }
 
 #message{

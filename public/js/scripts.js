@@ -21,6 +21,26 @@ $(document).ready(function(){
 		$("#logout").hide();
 		$("#omer").hide();
     });
+
+    $('#name').keyup(function(){
+    	$('#req').hide();
+    	if($('#name').val().length > 128){
+    		$('#name').val($('#name').val().substring(0, 128));
+		}
+    });
+
+    $('#name').blur(function(){
+    	if($('#name').val().length <= 0){
+    		$('#req').show();
+    	}
+    });
+
+    $('#pw').keyup(function(){
+    	if($('#pw').val().length > 128){
+    		$('#pw').val($('#pw').val().substring(0, 128));
+		}
+    });
+
     
 	$('#login').click(function(e){
 		console.log('clicking login button');

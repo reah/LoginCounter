@@ -1,6 +1,6 @@
 $(document).ready(function(){
-	var url_local = 'http://localhost:3000';
-	var url_heroku = 'http://reah-webapp.herokuapp.com';
+	// var url_local = 'http://localhost:3000';
+	// var url_heroku = 'http://reah-webapp.herokuapp.com';
 	var messages = {
 		'-1': 'Bad Login Credentials',
 		'-2': 'User Already Exists',
@@ -9,7 +9,6 @@ $(document).ready(function(){
 	}
     
     $(function(){
-        $('#image').hide();
         $('#countScreen').hide();
         $('#logout').hide();
     });
@@ -20,7 +19,7 @@ $(document).ready(function(){
 		$("#message").hide();
 		$("#login").show();
 		$("#logout").hide();
-		$("#image").hide();
+		$("#omer").hide();
     });
     
 	$('#login').click(function(e){
@@ -32,7 +31,7 @@ $(document).ready(function(){
 		console.log(password);
 		$.ajax({
 			type: 'POST',
-			url: url_heroku + '/users/login',
+			url: '/users/login',
 			data: JSON.stringify({user: username, password: password}),
 			contentType: "application/json",
 			dataType: "json",
@@ -44,13 +43,14 @@ $(document).ready(function(){
 					$("#message").show();
 				}else{
 					if(username == 'Omer' || username == 'omer'){
-						$('#image').show();
+						$('#omer').css('display', 'block');
 					}
+					$("#message").hide();
 					$("#countScreen").show();
 					$("#countScreen #name").html(username);
 					$("#countScreen #count").html(data['count']);
 					$(".wrapper").hide();
-					$("#logout").show();				
+					$("#logout").css('display', 'block');				
 				}
 			}
 		});
@@ -63,7 +63,7 @@ $(document).ready(function(){
 		console.log(password);
 		$.ajax({
 			type: 'POST',
-			url: url_heroku + '/users/add',
+			url: '/users/add',
 			data: JSON.stringify({user: username, password: password}),
 			contentType: "application/json",
 			dataType: "json",
